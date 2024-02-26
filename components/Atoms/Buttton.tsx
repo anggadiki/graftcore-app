@@ -1,11 +1,13 @@
 import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 import { Text, View } from "../Themed";
+import { TouchableOpacity } from "react-native";
 
 type Props = {
   title?: string;
+  children?: React.ReactNode;
 };
 const Button = (props: Props) => {
-  const { title } = props;
+  const { title, children } = props;
   let [fontsLoaded, fontError] = useFonts({
     NotoSans_400Regular,
   });
@@ -19,20 +21,22 @@ const Button = (props: Props) => {
         backgroundColor: "#F3387E",
         justifyContent: "center",
         alignItems: "center",
-        padding: 15,
-        marginHorizontal: 30,
+        padding: 13,
         borderRadius: 10,
       }}
     >
-      <Text
-        style={{
-          fontFamily: "NotoSans_400Regular",
-          fontWeight: "700",
-          fontSize: 18,
-        }}
-      >
-        {title}
-      </Text>
+      <TouchableOpacity>
+        <Text
+          style={{
+            fontFamily: "NotoSans_400Regular",
+            fontWeight: "700",
+            fontSize: 18,
+          }}
+        >
+          {title}
+          {children}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
