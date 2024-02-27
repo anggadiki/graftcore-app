@@ -1,8 +1,9 @@
-import { AntDesign } from "@expo/vector-icons";
 import { Text, View } from "../Themed";
 import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 import { TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
+import { Link } from "expo-router";
+import BackHandler from "../Atoms/BackHandler";
 
 const SignUpScreen = () => {
   let [fontsLoaded, fontError] = useFonts({
@@ -19,15 +20,7 @@ const SignUpScreen = () => {
         margin: 24,
       }}
     >
-      <View
-        style={{
-          width: "100%",
-          alignItems: "flex-start",
-          backgroundColor: "white",
-        }}
-      >
-        <AntDesign name="left" size={24} color="black" />
-      </View>
+      <BackHandler />
       <Text
         style={{
           fontSize: 18,
@@ -145,7 +138,9 @@ const SignUpScreen = () => {
           Policy.
         </Text>
         <View style={{ width: "100%", backgroundColor: "white" }}>
-          <Button title="Next"></Button>
+          <Button>
+            <Link href="/auth/(sign up)/confirmEmail">Next</Link>
+          </Button>
         </View>
       </View>
     </View>

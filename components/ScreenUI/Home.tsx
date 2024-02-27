@@ -32,7 +32,7 @@ const HomeScreen = () => {
       >
         <Button>Log In</Button>
         <Button>
-          <Link href="/auth/signUp">Sign Up</Link>
+          <Link href="/auth/(sign up)/signUp">Sign Up</Link>
         </Button>
       </View>
     </View>

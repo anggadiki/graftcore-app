@@ -1,4 +1,4 @@
-import HomeScreen from "@/components/ScreenUI/home";
+import HomeScreen from "@/components/ScreenUI/Home";
 
 const Home = () => {
   return <HomeScreen />;
