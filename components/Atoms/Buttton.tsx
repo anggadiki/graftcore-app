@@ -5,9 +5,10 @@ import { TouchableOpacity } from "react-native";
 type Props = {
   title?: string;
   children?: React.ReactNode;
+  onPress?: () => void;
 };
 const Button = (props: Props) => {
-  const { title, children } = props;
+  const { title, children, onPress } = props;
   let [fontsLoaded, fontError] = useFonts({
     NotoSans_400Regular,
   });
@@ -25,7 +26,7 @@ const Button = (props: Props) => {
         borderRadius: 10,
       }}
     >
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
         <Text
           style={{
             fontFamily: "NotoSans_400Regular",

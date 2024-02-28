@@ -1,21 +1,19 @@
-import { TextInput } from "react-native";
-import BackHandler from "../Atoms/BackHandler";
-import { Text, View } from "../Themed";
 import {
   useFonts,
   NotoSans_400Regular,
-  NotoSans_500Medium,
   NotoSans_600SemiBold,
 } from "@expo-google-fonts/noto-sans";
+import { Text, View } from "../Themed";
+import BackHandler from "../Atoms/BackHandler";
+import { TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
-import { Link, useRouter } from "expo-router";
-const AddPhoneNumberScreen = () => {
-  const router = useRouter();
+
+const ConfirmPhoneNumberScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
     NotoSans_400Regular,
-    NotoSans_500Medium,
     NotoSans_600SemiBold,
   });
+
   if (!fontsLoaded && !fontError) {
     return null;
   }
@@ -45,7 +43,7 @@ const AddPhoneNumberScreen = () => {
               fontSize: 18,
             }}
           >
-            What’s Your Phone Number?
+            Confirm Your Phone Number
           </Text>
           <Text
             style={{
@@ -54,7 +52,21 @@ const AddPhoneNumberScreen = () => {
               fontSize: 16,
             }}
           >
-            We’ll need a phone number you own.
+            We’ll send a code to the phone number you provided to confirm you
+            own it.
+          </Text>
+        </View>
+        <View
+          style={{ width: "100%", backgroundColor: "white", marginTop: 24 }}
+        >
+          <Text
+            style={{
+              color: "black",
+              fontFamily: "NotoSans_600SemiBold",
+              fontSize: 24,
+            }}
+          >
+            (234) 08106454127
           </Text>
         </View>
         <View
@@ -67,13 +79,13 @@ const AddPhoneNumberScreen = () => {
               fontSize: 16,
             }}
           >
-            Phone Number
+            Verification code
           </Text>
           <TextInput
             inputMode="numeric"
-            placeholder="08106454127"
-            secureTextEntry={false}
-            textContentType="name"
+            placeholder="************"
+            secureTextEntry={true}
+            textContentType="password"
             style={{
               backgroundColor: "#ECECEC80",
               paddingVertical: 12.5,
@@ -86,6 +98,17 @@ const AddPhoneNumberScreen = () => {
             }}
           ></TextInput>
         </View>
+        <Text
+          style={{
+            color: "#9380B0",
+            fontFamily: "NotoSans_600SemiBold",
+            fontSize: 16,
+            marginTop: 24,
+            textAlign: "center",
+          }}
+        >
+          Resend Code
+        </Text>
       </View>
       <View
         style={{
@@ -96,15 +119,10 @@ const AddPhoneNumberScreen = () => {
           marginBottom: 63,
         }}
       >
-        <Button
-          title="Next"
-          onPress={() =>
-            router.push("/auth/(account setup)/confirmPhoneNumber")
-          }
-        ></Button>
+        <Button title="Next"></Button>
       </View>
     </View>
   );
 };
 
-export default AddPhoneNumberScreen;
+export default ConfirmPhoneNumberScreen;
