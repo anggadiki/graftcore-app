@@ -9,6 +9,7 @@ import { Text, View } from "../Themed";
 import BackHandler from "../Atoms/BackHandler";
 import { SafeAreaView, TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
+import { Link } from "expo-router";
 
 const CreateAccountScreen = () => {
   let [fontsLoaded, fontError] = useFonts({
@@ -33,7 +34,12 @@ const CreateAccountScreen = () => {
       <BackHandler />
       <View style={{ width: "100%", backgroundColor: "white" }}>
         <View
-          style={{ width: "100%", backgroundColor: "white", marginTop: 24 }}
+          style={{
+            width: "100%",
+            backgroundColor: "white",
+            marginTop: 24,
+            gap: 8,
+          }}
         >
           <Text
             style={{
@@ -210,7 +216,9 @@ const CreateAccountScreen = () => {
               paddingTop: 32,
             }}
           >
-            <Button title="Next"></Button>
+            <Button>
+              <Link href="/auth/(account setup)/addPhoneNumber">Next</Link>
+            </Button>
           </View>
         </View>
       </View>
