@@ -209,7 +209,9 @@ const AddAddressScreen = () => {
           marginBottom: 63,
         }}
       >
-        <Button title="Next"></Button>
+        <Button>
+          <Link href="/auth/(account setup)/successCreateAccount">Next</Link>
+        </Button>
       </View>
     </View>
   );
