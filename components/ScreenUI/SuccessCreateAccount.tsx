@@ -6,6 +6,7 @@ import {
   NotoSans_600SemiBold,
 } from "@expo-google-fonts/noto-sans";
 import Button from "../Atoms/Buttton";
+import { Link } from "expo-router";
 
 const SuccessCreateAccountScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -89,7 +90,9 @@ const SuccessCreateAccountScreen = () => {
           marginBottom: 64,
         }}
       >
-        <Button title="Next"></Button>
+        <Button>
+          <Link href="/auth/(log in)/logIn">Continue</Link>
+        </Button>
       </View>
     </View>
   );
