@@ -32,7 +32,13 @@ const SignUpScreen = () => {
       >
         Email & Password
       </Text>
-      <Text style={{ color: "black", fontFamily: "NotoSans_400Regular" }}>
+      <Text
+        style={{
+          color: "black",
+          fontFamily: "NotoSans_400Regular",
+          fontSize: 16,
+        }}
+      >
         Open a Graftcore account with a few details. your password must have at
         least 8 characters including letters and a number
       </Text>

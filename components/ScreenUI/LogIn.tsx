@@ -7,6 +7,7 @@ import {
 import { Text, View } from "../Themed";
 import { Image, TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
+import { Link } from "expo-router";
 
 const LogInScreeen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -103,7 +104,9 @@ const LogInScreeen = () => {
         </View>
       </View>
       <View style={{ width: "100%", backgroundColor: "white", marginTop: 28 }}>
-        <Button title="Continue"></Button>
+        <Button>
+          <Link href="/auth/(passcode)/createPasscode">Continue</Link>
+        </Button>
       </View>
       <Text
         style={{
@@ -117,7 +120,7 @@ const LogInScreeen = () => {
       </Text>
       <Image
         source={require("../../assets/images/fingerprint.png")}
-        style={{ marginTop: 32, width: 160, height: 160 }}
+        style={{ marginTop: 28, width: 160, height: 160 }}
       ></Image>
     </View>
   );

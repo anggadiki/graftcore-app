@@ -30,7 +30,9 @@ const HomeScreen = () => {
           paddingHorizontal: 30,
         }}
       >
-        <Button>Log In</Button>
+        <Button>
+          <Link href="/auth/(log in)/logIn">Log In</Link>
+        </Button>
         <Button>
           <Link href="/auth/(sign up)/signUp">Sign Up</Link>
         </Button>
