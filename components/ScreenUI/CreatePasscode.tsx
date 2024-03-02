@@ -6,6 +6,8 @@ import {
 import BackHandler from "../Atoms/BackHandler";
 import { Text, View } from "../Themed";
 import { Image, TextInput } from "react-native";
+import { useState } from "react";
+import { router } from "expo-router";
 
 const numbers = [
   { value: 1 },
@@ -15,6 +17,7 @@ const numbers = [
   { value: 5 },
 ];
 const CreatePasscodeScreen = () => {
+  const [passcode, setPasscode] = useState("");
   const [fontsLoaded, fontError] = useFonts({
     NotoSans_400Regular,
     NotoSans_600SemiBold,
@@ -22,6 +25,15 @@ const CreatePasscodeScreen = () => {
   if (!fontsLoaded && !fontError) {
     return null;
   }
+
+  const handlePasscodeChange = (text: any, index: any) => {
+    const newPasscode =
+      passcode.substring(0, index) + text + passcode.substring(index + 1);
+    setPasscode(newPasscode);
+    if (newPasscode.length === 5) {
+      router.navigate("/auth/(passcode)/success");
+    }
+  };
   return (
     <View
       style={{
@@ -97,6 +109,9 @@ const CreatePasscodeScreen = () => {
               maxLength={1}
               keyboardType="number-pad"
               secureTextEntry={true}
+              onChange={(e) =>
+                handlePasscodeChange(e.nativeEvent.text, number.value)
+              }
             />
           </View>
         ))}
