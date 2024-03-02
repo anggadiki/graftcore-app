@@ -7,6 +7,7 @@ import BackHandler from "../Atoms/BackHandler";
 import { Text, View } from "../Themed";
 import { TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
+import { Link } from "expo-router";
 
 const ForgotPasswordScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -90,7 +91,11 @@ const ForgotPasswordScreen = () => {
           marginBottom: 64,
         }}
       >
-        <Button title="Send Instructions"></Button>
+        <Button>
+          <Link href="/auth/(reset password)/sendToEmail">
+            Send Instructions
+          </Link>
+        </Button>
       </View>
     </View>
   );
