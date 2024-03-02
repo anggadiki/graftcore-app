@@ -108,16 +108,20 @@ const LogInScreeen = () => {
           <Link href="/auth/(passcode)/createPasscode">Continue</Link>
         </Button>
       </View>
-      <Text
-        style={{
-          color: "#270162",
-          fontFamily: "NotoSans_600SemiBold",
-          marginTop: 24,
-          fontSize: 16,
-        }}
+      <Link
+        href="/auth/(reset password)/forgotPassword"
+        style={{ marginTop: 24 }}
       >
-        Change Password
-      </Text>
+        <Text
+          style={{
+            color: "#270162",
+            fontFamily: "NotoSans_600SemiBold",
+            fontSize: 16,
+          }}
+        >
+          Change Password
+        </Text>
+      </Link>
       <Image
         source={require("../../assets/images/fingerprint.png")}
         style={{ marginTop: 28, width: 160, height: 160 }}
