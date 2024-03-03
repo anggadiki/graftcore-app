@@ -6,6 +6,7 @@ import {
 import { Text, View } from "../Themed";
 import { Image } from "react-native";
 import Button from "../Atoms/Buttton";
+import { Link } from "expo-router";
 
 const SendToEmailScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -50,7 +51,11 @@ const SendToEmailScreen = () => {
         We have sent instructions to reset your password to your email address.
       </Text>
       <View style={{ width: "100%", backgroundColor: "white", marginTop: 24 }}>
-        <Button title="Open email app"></Button>
+        <Button>
+          <Link href="/auth/(reset password)/createNewPassword">
+            Open email app
+          </Link>
+        </Button>
       </View>
       <View
         style={{
