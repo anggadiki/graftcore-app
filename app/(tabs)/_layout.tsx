@@ -23,7 +23,7 @@ const TabLayout = () => {
       <Tabs.Screen
         name="cards"
         options={{
-          title: "Home",
+          title: "Cards",
           tabBarIcon: ({ color }) => (
             <Ionicons name="wallet" size={28} color={color} />
           ),
