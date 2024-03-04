@@ -6,6 +6,7 @@ import {
 import { Text, View } from "../Themed";
 import { Image } from "react-native";
 import Button from "../Atoms/Buttton";
+import { Link } from "expo-router";
 
 const SuccesCreatePasscodeScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -59,7 +60,9 @@ const SuccesCreatePasscodeScreen = () => {
           backgroundColor: "white",
         }}
       >
-        <Button title="Continue"></Button>
+        <Button>
+          <Link href="/(tabs)/">Continue</Link>
+        </Button>
       </View>
     </View>
   );
