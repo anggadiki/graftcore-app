@@ -1,4 +1,9 @@
 import {
+  useFonts,
+  NotoSans_400Regular,
+  NotoSans_600SemiBold,
+} from "@expo-google-fonts/noto-sans";
+import {
   AntDesign,
   FontAwesome,
   Ionicons,
@@ -7,9 +12,18 @@ import {
 import { Tabs } from "expo-router";
 
 const TabLayout = () => {
+  const [fontsLoaded] = useFonts({
+    NotoSans_400Regular,
+    NotoSans_600SemiBold,
+  });
+  if (!fontsLoaded) return null;
   return (
     <Tabs
-      screenOptions={{ tabBarActiveTintColor: "#F3387E", headerShown: false }}
+      screenOptions={{
+        tabBarActiveTintColor: "#F3387E",
+        headerShown: false,
+        tabBarLabelStyle: { fontFamily: "NotoSans_600SemiBold" },
+      }}
     >
       <Tabs.Screen
         name="index"
