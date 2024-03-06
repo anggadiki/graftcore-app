@@ -1,3 +1,4 @@
+import Heading from "../Atoms/Heading";
 import { Text, View } from "../Themed";
 
 const DashboardScreen = () => {
@@ -6,11 +7,11 @@ const DashboardScreen = () => {
       style={{
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
         backgroundColor: "white",
+        padding: 24,
       }}
     >
-      <Text style={{ color: "black" }}>Dashboard</Text>
+      <Heading />
     </View>
   );
 };
