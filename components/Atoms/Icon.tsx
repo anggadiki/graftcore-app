@@ -19,7 +19,6 @@ const Icon = ({ source, title }: Props) => {
         backgroundColor: "white",
         gap: 4,
         alignItems: "center",
-        marginHorizontal: 12,
       }}
     >
       <View
