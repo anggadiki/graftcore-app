@@ -8,6 +8,7 @@ import { Text, View } from "../Themed";
 import { AntDesign, Feather, FontAwesome5, Ionicons } from "@expo/vector-icons";
 import { Image } from "react-native";
 import Icon from "../Atoms/Icon";
+import { Link } from "expo-router";
 
 const DashboardScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -109,26 +110,28 @@ const DashboardScreen = () => {
               Add Money
             </Text>
           </View>
-          <View
-            style={{
-              backgroundColor: "#F3387E",
-              alignItems: "center",
-            }}
-          >
-            <Image
-              source={require("../../assets/images/arrange-square.png")}
-              style={{ width: 35, height: 32 }}
-            />
-            <Text
+          <Link href="/transfer/">
+            <View
               style={{
-                color: "white",
-                fontFamily: "NotoSans_400Regular",
-                fontSize: 12,
+                backgroundColor: "#F3387E",
+                alignItems: "center",
               }}
             >
-              Transfer
-            </Text>
-          </View>
+              <Image
+                source={require("../../assets/images/arrange-square.png")}
+                style={{ width: 35, height: 32 }}
+              />
+              <Text
+                style={{
+                  color: "white",
+                  fontFamily: "NotoSans_400Regular",
+                  fontSize: 12,
+                }}
+              >
+                Transfer
+              </Text>
+            </View>
+          </Link>
           <View
             style={{
               backgroundColor: "#F3387E",
@@ -183,7 +186,7 @@ const DashboardScreen = () => {
         />
         <Icon
           source={require("../../assets/images/electricity.png")}
-          title="Electricity"
+          title="Electric"
         />
         <Icon source={require("../../assets/images/bag-2.png")} title="Deals" />
         <Icon source={require("../../assets/images/game.png")} title="Game" />
