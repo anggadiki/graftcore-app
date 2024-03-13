@@ -107,6 +107,7 @@ const BankTransferScreen = () => {
               width: "60%",
             }}
             placeholder="Enter amount"
+            keyboardType="number-pad"
           />
           <View
             style={{
