@@ -6,7 +6,8 @@ import {
 import BackHandler from "../Atoms/BackHandler";
 import { Text, View } from "../Themed";
 import { AntDesign, Feather } from "@expo/vector-icons";
-import { Image, TextInput } from "react-native";
+import { Image, TextInput, TouchableOpacity } from "react-native";
+import { Link } from "expo-router";
 
 const TransferScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -49,7 +50,7 @@ const TransferScreen = () => {
         style={{ position: "absolute", left: 16, top: 72 }}
       />
       {/* bank card */}
-      <View
+      <TouchableOpacity
         style={{
           width: "100%",
           flexDirection: "row",
@@ -79,41 +80,43 @@ const TransferScreen = () => {
             style={{ width: 24, height: 24 }}
           />
         </View>
-        <View style={{ backgroundColor: "white" }}>
-          <Text
-            style={{
-              color: "black",
-              fontFamily: "NotoSans_600SemiBold",
-              fontSize: 16,
-              position: "relative",
-            }}
-          >
-            To Bank account
-          </Text>
-          <Text
-            style={{
-              color: "#392E32",
-              fontFamily: "NotoSans_400Regular",
-              fontSize: 12,
-            }}
-          >
-            Transfers to bank accounts are free
-          </Text>
-          <Image
-            source={require("../../assets/images/free.png")}
-            style={{
-              position: "absolute",
-              right: 46,
-              top: 7,
-              width: 17,
-              height: 14,
-            }}
-          />
-        </View>
+        <Link href={"/transfer/bankTransfer"}>
+          <View style={{ backgroundColor: "white" }}>
+            <Text
+              style={{
+                color: "black",
+                fontFamily: "NotoSans_600SemiBold",
+                fontSize: 16,
+                position: "relative",
+              }}
+            >
+              To Bank account
+            </Text>
+            <Text
+              style={{
+                color: "#392E32",
+                fontFamily: "NotoSans_400Regular",
+                fontSize: 12,
+              }}
+            >
+              Transfers to bank accounts are free
+            </Text>
+            <Image
+              source={require("../../assets/images/free.png")}
+              style={{
+                position: "absolute",
+                right: 46,
+                top: 7,
+                width: 17,
+                height: 14,
+              }}
+            />
+          </View>
+        </Link>
         <AntDesign name="right" size={24} color="#392E32" />
-      </View>
+      </TouchableOpacity>
       {/* mobile card */}
-      <View
+      <TouchableOpacity
         style={{
           width: "100%",
           flexDirection: "row",
@@ -175,7 +178,7 @@ const TransferScreen = () => {
           />
         </View>
         <AntDesign name="right" size={24} color="#392E32" />
-      </View>
+      </TouchableOpacity>
       {/* see more text */}
       <View
         style={{
