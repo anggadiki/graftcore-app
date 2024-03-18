@@ -9,7 +9,7 @@ import BackHandler from "../Atoms/BackHandler";
 import { Text, View } from "../Themed";
 import { TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const ConfirmEmailScreen = () => {
   let [fontsLoaded, fontError] = useFonts({
@@ -137,10 +137,10 @@ const ConfirmEmailScreen = () => {
             width: "100%",
           }}
         >
-          <Button>
-            {" "}
-            <Link href="/auth/(account setup)/createAccount">Next</Link>
-          </Button>
+          <Button
+            title="Next"
+            onPress={() => router.push("/auth/(account setup)/createAccount")}
+          ></Button>
         </View>
       </View>
     </View>

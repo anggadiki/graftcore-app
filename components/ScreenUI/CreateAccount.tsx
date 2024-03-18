@@ -9,7 +9,7 @@ import { Text, View } from "../Themed";
 import BackHandler from "../Atoms/BackHandler";
 import { SafeAreaView, TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const CreateAccountScreen = () => {
   let [fontsLoaded, fontError] = useFonts({
@@ -216,9 +216,10 @@ const CreateAccountScreen = () => {
               paddingTop: 32,
             }}
           >
-            <Button>
-              <Link href="/auth/(account setup)/addPhoneNumber">Next</Link>
-            </Button>
+            <Button
+              title="Next"
+              onPress={() => router.push("/auth/(account setup)/addAddress")}
+            ></Button>
           </View>
         </View>
       </View>

@@ -7,7 +7,7 @@ import {
 import { Text, View } from "../Themed";
 import { Image, TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const LogInScreeen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -104,9 +104,10 @@ const LogInScreeen = () => {
         </View>
       </View>
       <View style={{ width: "100%", backgroundColor: "white", marginTop: 28 }}>
-        <Button>
-          <Link href="/auth/(passcode)/createPasscode">Continue</Link>
-        </Button>
+        <Button
+          title="Continue"
+          onPress={() => router.push("/auth/(passcode)/createPasscode")}
+        ></Button>
       </View>
       <Link
         href="/auth/(reset password)/forgotPassword"

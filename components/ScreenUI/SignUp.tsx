@@ -2,7 +2,7 @@ import { Text, View } from "../Themed";
 import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 import { TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import BackHandler from "../Atoms/BackHandler";
 
 const SignUpScreen = () => {
@@ -144,9 +144,10 @@ const SignUpScreen = () => {
           Policy.
         </Text>
         <View style={{ width: "100%", backgroundColor: "white" }}>
-          <Button>
-            <Link href="/auth/(sign up)/confirmEmail">Next</Link>
-          </Button>
+          <Button
+            title="Next"
+            onPress={() => router.push("/auth/(sign up)/confirmEmail")}
+          ></Button>
         </View>
       </View>
     </View>

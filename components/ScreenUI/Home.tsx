@@ -1,7 +1,7 @@
 import { Image, StyleSheet } from "react-native";
 import { View } from "../Themed";
 import Button from "../Atoms/Buttton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const HomeScreen = () => {
   return (
@@ -17,12 +17,14 @@ const HomeScreen = () => {
         alt="home"
       />
       <View style={styles.buttonContainer}>
-        <Button>
-          <Link href="/auth/(log in)/logIn">Log In</Link>
-        </Button>
-        <Button>
-          <Link href="/auth/(sign up)/signUp">Sign Up</Link>
-        </Button>
+        <Button
+          title="Log In"
+          onPress={() => router.push("/auth/(log in)/logIn")}
+        ></Button>
+        <Button
+          title="Sign Up"
+          onPress={() => router.push("/auth/(sign up)/signUp")}
+        ></Button>
       </View>
     </View>
   );

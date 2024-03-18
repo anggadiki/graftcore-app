@@ -6,7 +6,7 @@ import {
   NotoSans_600SemiBold,
 } from "@expo-google-fonts/noto-sans";
 import Button from "../Atoms/Buttton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const SuccessResetPasswordScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -57,9 +57,10 @@ const SuccessResetPasswordScreen = () => {
         You have successfully reset your password
       </Text>
       <View style={{ marginTop: 40, backgroundColor: "white", width: "100%" }}>
-        <Button>
-          <Link href="/auth/(log in)/logIn">Okay</Link>
-        </Button>
+        <Button
+          title="Okay"
+          onPress={() => router.push("/auth/(log in)/logIn")}
+        ></Button>
       </View>
     </View>
   );

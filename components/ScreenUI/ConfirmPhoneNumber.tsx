@@ -7,7 +7,7 @@ import { Text, View } from "../Themed";
 import BackHandler from "../Atoms/BackHandler";
 import { TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const ConfirmPhoneNumberScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -120,9 +120,10 @@ const ConfirmPhoneNumberScreen = () => {
           marginBottom: 63,
         }}
       >
-        <Button>
-          <Link href="/auth/(account setup)/addAddress">Next</Link>
-        </Button>
+        <Button
+          title="Next"
+          onPress={() => router.push("/auth/(account setup)/addAddress")}
+        ></Button>
       </View>
     </View>
   );
