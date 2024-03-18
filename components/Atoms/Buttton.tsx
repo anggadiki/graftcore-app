@@ -17,7 +17,8 @@ const Button = (props: Props) => {
     return null;
   }
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress}
       style={{
         backgroundColor: "#F3387E",
         justifyContent: "center",
@@ -26,19 +27,17 @@ const Button = (props: Props) => {
         borderRadius: 10,
       }}
     >
-      <TouchableOpacity onPress={onPress}>
-        <Text
-          style={{
-            fontFamily: "NotoSans_400Regular",
-            fontWeight: "700",
-            fontSize: 18,
-          }}
-        >
-          {title}
-          {children}
-        </Text>
-      </TouchableOpacity>
-    </View>
+      <Text
+        style={{
+          fontFamily: "NotoSans_400Regular",
+          fontWeight: "700",
+          fontSize: 18,
+        }}
+      >
+        {title}
+        {children}
+      </Text>
+    </TouchableOpacity>
   );
 };
 

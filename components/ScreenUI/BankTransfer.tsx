@@ -8,6 +8,7 @@ import BackHandler from "../Atoms/BackHandler";
 import { Image, TextInput } from "react-native";
 import Line from "../Atoms/Line";
 import Button from "../Atoms/Buttton";
+import { router } from "expo-router";
 
 const BankTransferScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -213,7 +214,10 @@ const BankTransferScreen = () => {
         </Text>
       </View>
       <View style={{ backgroundColor: "transparent", marginTop: 24 }}>
-        <Button title="Continue" />
+        <Button
+          title="Continue"
+          onPress={() => router.push("/transfer/detailTransfer")}
+        />
       </View>
     </View>
   );
