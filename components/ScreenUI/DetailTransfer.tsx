@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import { SelectList } from "react-native-dropdown-select-list";
 import { TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
+import { router } from "expo-router";
 
 const DetailTransferScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -179,7 +180,10 @@ const DetailTransferScreen = () => {
         }}
         placeholder="One-Time"
       />
-      <Button title="Continue" />
+      <Button
+        title="Continue"
+        onPress={() => router.push("/transfer/confirmTransfer")}
+      />
     </View>
   );
 };
