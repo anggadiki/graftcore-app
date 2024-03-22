@@ -1,8 +1,9 @@
+import React from "react";
+import { StyleSheet, TextInput } from "react-native";
 import { Text, View } from "../Themed";
 import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
-import { TextInput } from "react-native";
 import Button from "../Atoms/Buttton";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import BackHandler from "../Atoms/BackHandler";
 
 const SignUpScreen = () => {
@@ -13,145 +14,110 @@ const SignUpScreen = () => {
   if (!fontsLoaded && !fontError) {
     return null;
   }
+
   return (
-    <View
-      style={{
-        backgroundColor: "white",
-        margin: 24,
-      }}
-    >
+    <View style={styles.container}>
       <BackHandler />
-      <Text
-        style={{
-          fontSize: 18,
-          color: "black",
-          fontFamily: "NotoSans_400Regular",
-          fontWeight: "700",
-          marginTop: 24,
-        }}
-      >
-        Email & Password
+      <Text style={styles.heading}>Email & Password</Text>
+      <Text style={styles.description}>
+        Open a Graftcore account with a few details. Your password must have at
+        least 8 characters including letters and a number.
       </Text>
-      <Text
-        style={{
-          color: "black",
-          fontFamily: "NotoSans_400Regular",
-          fontSize: 16,
-        }}
-      >
-        Open a Graftcore account with a few details. your password must have at
-        least 8 characters including letters and a number
-      </Text>
-      <View
-        style={{
-          width: "100%",
-          backgroundColor: "white",
-          marginTop: 24,
-          gap: 10,
-        }}
-      >
-        <View style={{ width: "100%", backgroundColor: "white" }}>
-          <Text
-            style={{
-              fontFamily: "NotoSans_400Regular",
-              color: "black",
-              fontWeight: "400",
-              fontSize: 16,
-            }}
-          >
-            Email Address
-          </Text>
+      <View style={styles.inputContainer}>
+        <View style={styles.inputWrapper}>
+          <Text style={styles.inputLabel}>Email Address</Text>
           <TextInput
             placeholder="Adewoleazeez4@gmail.com"
             textContentType="emailAddress"
-            style={{
-              backgroundColor: "#ECECEC80",
-              paddingVertical: 13,
-              borderRadius: 8,
-              paddingLeft: 16,
-              borderWidth: 1,
-              borderColor: "#B0ABAD",
-              fontSize: 16,
-              color: "black",
-            }}
+            style={styles.input}
           />
         </View>
-        <View style={{ width: "100%", backgroundColor: "white" }}>
-          <Text
-            style={{
-              fontFamily: "NotoSans_400Regular",
-              color: "black",
-              fontWeight: "400",
-              fontSize: 16,
-            }}
-          >
-            Password
-          </Text>
+        <View style={styles.inputWrapper}>
+          <Text style={styles.inputLabel}>Password</Text>
           <TextInput
             placeholder="**********"
             textContentType="password"
             secureTextEntry={true}
-            style={{
-              backgroundColor: "#ECECEC80",
-              paddingVertical: 13,
-              borderRadius: 8,
-              paddingLeft: 16,
-              borderWidth: 1,
-              borderColor: "#B0ABAD",
-              fontSize: 16,
-              color: "black",
-            }}
+            style={styles.input}
           />
         </View>
-        <View style={{ width: "100%", backgroundColor: "white" }}>
-          <Text
-            style={{
-              fontFamily: "NotoSans_400Regular",
-              color: "black",
-              fontWeight: "400",
-              fontSize: 16,
-            }}
-          >
-            Confirm Password
-          </Text>
+        <View style={styles.inputWrapper}>
+          <Text style={styles.inputLabel}>Confirm Password</Text>
           <TextInput
             placeholder="**********"
             textContentType="password"
             secureTextEntry={true}
-            style={{
-              backgroundColor: "#ECECEC80",
-              paddingVertical: 13,
-              borderRadius: 8,
-              paddingLeft: 16,
-              borderWidth: 1,
-              borderColor: "#B0ABAD",
-              fontSize: 16,
-              color: "black",
-            }}
+            style={styles.input}
           />
         </View>
       </View>
-      <View
-        style={{
-          backgroundColor: "white",
-          flexBasis: "35%",
-          justifyContent: "flex-end",
-          gap: 24,
-        }}
-      >
-        <Text style={{ color: "black", fontFamily: "NotoSans_400Regular" }}>
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>
           By tapping “Next”, you agree to our Terms & Conditions and Privacy
           Policy.
         </Text>
-        <View style={{ width: "100%", backgroundColor: "white" }}>
-          <Button
-            title="Next"
-            onPress={() => router.push("/auth/(sign up)/confirmEmail")}
-          ></Button>
-        </View>
+        <Button
+          title="Next"
+          onPress={() => router.push("/auth/(sign up)/confirmEmail")}
+        />
       </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    margin: 24,
+  },
+  heading: {
+    fontSize: 18,
+    color: "black",
+    fontFamily: "NotoSans_400Regular",
+    fontWeight: "700",
+    marginTop: 24,
+  },
+  description: {
+    color: "black",
+    fontFamily: "NotoSans_400Regular",
+    fontSize: 16,
+  },
+  inputContainer: {
+    width: "100%",
+    backgroundColor: "white",
+    marginTop: 24,
+    gap: 10,
+  },
+  inputWrapper: {
+    width: "100%",
+    backgroundColor: "white",
+  },
+  inputLabel: {
+    fontFamily: "NotoSans_400Regular",
+    color: "black",
+    fontWeight: "400",
+    fontSize: 16,
+  },
+  input: {
+    backgroundColor: "#ECECEC80",
+    paddingVertical: 13,
+    borderRadius: 8,
+    paddingLeft: 16,
+    borderWidth: 1,
+    borderColor: "#B0ABAD",
+    fontSize: 16,
+    color: "black",
+  },
+  footer: {
+    backgroundColor: "white",
+    flexBasis: "35%",
+    justifyContent: "flex-end",
+    gap: 24,
+  },
+  footerText: {
+    color: "black",
+    fontFamily: "NotoSans_400Regular",
+  },
+});
 
 export default SignUpScreen;
