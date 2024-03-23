@@ -6,6 +6,7 @@ import {
 import { Text, View } from "../Themed";
 import BackHandler from "../Atoms/BackHandler";
 import Button from "../Atoms/Buttton";
+import { router } from "expo-router";
 
 const ConfirmTransferScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -148,7 +149,10 @@ const ConfirmTransferScreen = () => {
         </View>
         {/* button */}
         <View style={{ width: "100%", backgroundColor: "transparent" }}>
-          <Button title="Confirm" />
+          <Button
+            title="Confirm"
+            onPress={() => router.push("/transfer/succesTransfer")}
+          />
         </View>
       </View>
     </View>
