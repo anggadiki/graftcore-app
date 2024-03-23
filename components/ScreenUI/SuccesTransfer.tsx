@@ -1,10 +1,11 @@
+import React from "react";
+import { StyleSheet, Image } from "react-native";
+import { Text, View } from "../Themed";
 import {
   useFonts,
   NotoSans_400Regular,
   NotoSans_600SemiBold,
 } from "@expo-google-fonts/noto-sans";
-import { Text, View } from "../Themed";
-import { Image } from "react-native";
 import Button from "../Atoms/Buttton";
 import { router } from "expo-router";
 
@@ -17,40 +18,16 @@ const SuccesTransferScreen = () => {
   if (!fontsLoaded && !fontError) {
     return null;
   }
+
   return (
-    <View
-      style={{
-        backgroundColor: "white",
-        margin: 24,
-        alignItems: "center",
-      }}
-    >
+    <View style={styles.container}>
       <Image
         source={require("../../assets/images/success.png")}
-        style={{ width: 160, height: 160, marginTop: 87 }}
+        style={styles.image}
       />
-      <Text
-        style={{
-          color: "black",
-          marginTop: 32,
-          fontFamily: "NotoSans_600SemiBold",
-          fontSize: 18,
-        }}
-      >
-        £1000 was
-      </Text>
-      <Text
-        style={{
-          color: "black",
-          fontFamily: "NotoSans_600SemiBold",
-          fontSize: 18,
-        }}
-      >
-        transferred successfully
-      </Text>
-      <View
-        style={{ marginTop: 40, width: "100%", backgroundColor: "transparent" }}
-      >
+      <Text style={styles.title}>£1000 was</Text>
+      <Text style={styles.subtitle}>transferred successfully</Text>
+      <View style={styles.buttonContainer}>
         <Button
           title="Go To Dashboard"
           onPress={() => router.push("/(tabs)/")}
@@ -59,5 +36,34 @@ const SuccesTransferScreen = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    margin: 24,
+    alignItems: "center",
+  },
+  image: {
+    width: 160,
+    height: 160,
+    marginTop: 87,
+  },
+  title: {
+    color: "black",
+    marginTop: 32,
+    fontFamily: "NotoSans_600SemiBold",
+    fontSize: 18,
+  },
+  subtitle: {
+    color: "black",
+    fontFamily: "NotoSans_600SemiBold",
+    fontSize: 18,
+  },
+  buttonContainer: {
+    marginTop: 40,
+    width: "100%",
+    backgroundColor: "transparent",
+  },
+});
 
 export default SuccesTransferScreen;
