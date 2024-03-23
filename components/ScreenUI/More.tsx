@@ -1,3 +1,5 @@
+import { router } from "expo-router";
+import Button from "../Atoms/Buttton";
 import { Text, View } from "../Themed";
 
 const MoreScreen = () => {
@@ -10,7 +12,7 @@ const MoreScreen = () => {
         backgroundColor: "white",
       }}
     >
-      <Text style={{ color: "black" }}>More</Text>
+      <Button title="Log Out" onPress={() => router.push("/")} />
     </View>
   );
 };
